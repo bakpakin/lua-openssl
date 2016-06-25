@@ -33,16 +33,6 @@ static int openssl_xalgor_dup(lua_State* L)
   return 1;
 }
 
-#if OPENSSL_VERSION_NUMBER >= 0x10002000L
-static int openssl_xalgor_cmp(lua_State* L)
-{
-  X509_ALGOR* alg = CHECK_OBJECT(1, X509_ALGOR, "openssl.x509_algor");
-  X509_ALGOR* ano = CHECK_OBJECT(2, X509_ALGOR, "openssl.x509_algor");
-  lua_pushboolean(L, X509_ALGOR_cmp(alg, ano) == 0);
-  return 1;
-}
-#endif
-
 #if OPENSSL_VERSION_NUMBER >= 0x10001000L
 static int openssl_xalgor_md(lua_State* L)
 {
@@ -121,10 +111,6 @@ static luaL_Reg xalgor_funcs[] =
   {"md",                openssl_xalgor_md},
 #endif
   {"tostring",          openssl_xalgor_tostring},
-#if OPENSSL_VERSION_NUMBER >= 0x10002000L
-  {"equals",            openssl_xalgor_cmp},
-  {"__eq",              openssl_xalgor_cmp},
-#endif
   {"__tostring",        auxiliar_tostring},
   {"__gc",              openssl_xalgor_gc},
 
