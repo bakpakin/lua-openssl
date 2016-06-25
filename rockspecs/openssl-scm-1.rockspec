@@ -1,18 +1,20 @@
-package = "openssl"
-version = "scm-1"
+package = "bkopenssl"
+version = "0.0.0-1"
 
 source = {
-  url = "https://github.com/zhaozg/lua-openssl/archive/master.zip",
-  dir = "lua-openssl-master",
+    url = "git://github.com/bakpakin/lua-openssl",
+    tag = version
 }
 
 description = {
   summary    = "Openssl binding for Lua",
-  homepage   = "https://github.com/zhaozg/lua-openssl",
+  homepage   = "https://github.com/bakpakin/lua-openssl",
   license    = "MIT/X11",
-  maintainer = "George Zhao",
+  maintainer = "Calvin Rose",
   detailed   = [[
-  ]],
+    A fork of George Zhao's Lua-OpenSSL module, intended as a
+    dependency for moonmint.
+  ]]
 }
 
 dependencies = {
